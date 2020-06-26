@@ -7,6 +7,16 @@
                     "minLength":3,
                     "maxLength":24
 
+            },
+            "storageSKU": {
+                "type": "string",
+                "allowedValues": [
+                    "Standard_LRS",
+                    "Standard_GRS",
+                    "Standard_ZRS",
+                    "Premium_LRS"
+                ]
+
             }
 
 
@@ -24,7 +34,7 @@
             "location": "[resourceGroup().location]",
             "kind": "StorageV2",
             "sku": {
-                "name": "Standard_LRS",
+                "name": "[parameters('storageSKU')]",
                 "tier": "Standard"
             }
         }
